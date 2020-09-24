@@ -1,0 +1,51 @@
+<form [formGroup]="employeeFormGroup" (ngSubmit)="Update()" >      
+    <div class="col-md-8">
+     <div class="form-group">
+       <label for="Name">Name</label>
+       <input type="text" formControlName="Name" class="form-control"  placeholder="Employee Name">
+       <div class="alert alert-danger" *ngIf="this.employeeFormGroup.get('Name').touched && this.employeeFormGroup.get('Name').invalid">Please enter the Employee Name</div>
+     </div>
+     <div class="form-group">
+       <label for="Address">Address</label>
+       <input type="text" formControlName="Address" class="form-control"  placeholder="Employee Address">
+       <div class="alert alert-danger" *ngIf="this.employeeFormGroup.get('Address').touched && this.employeeFormGroup.get('Address').invalid">Please enter the Employee Address</div>
+     </div>
+     <div class="form-group">
+         <label for="Role">Role</label>
+         <input type="text" formControlName="Role" class="form-control"  placeholder="Employee Role">
+         <div class="alert alert-danger" *ngIf="this.employeeFormGroup.get('Role').touched && this.employeeFormGroup.get('Role').invalid">Please enter the Employee Role</div>
+       </div>
+       <div class="form-group">
+         <label for="Department">Department</label>
+         <select formControlName="Department" class="form-control" >
+           <option value="">Select</option>
+          <option *ngFor="let dept of departments" [value]="dept"> {{dept}} </option>
+        </select>
+         <div class="alert alert-danger" *ngIf="this.employeeFormGroup.get('Department').touched && this.employeeFormGroup.get('Department').invalid">Please enter the Employee Department</div>
+       </div>
+     
+       <div class="form-group">
+         <label for="SkillSets">SkillSets</label>        
+         <textarea rows='3' cols="30" formControlName="SkillSets"  class="form-control" placeholder="Skillsets"></textarea>
+         <div class="alert alert-danger" *ngIf="this.employeeFormGroup.get('SkillSets').touched && this.employeeFormGroup.get('SkillSets').invalid">Please enter the Employee Skillsets</div>
+       </div>
+       <div class="form-group">
+         <label for="Date_of_Birth">Date of Birth <small>(MM/DD/YYYY)</small></label>
+         <input type="date" class="form-control"  formControlName="Date_of_Birth"  placeholder="Date of Birth">
+         <div class="alert alert-danger" *ngIf="this.employeeFormGroup.get('Date_of_Birth').touched && this.employeeFormGroup.get('Date_of_Birth').invalid">Please enter the Employee Date of Birth</div>
+       </div>
+       <div class="form-group">
+         <label for="Date_of_Joining">Date of Joining <small>(MM/DD/YYYY)</small></label>
+         <input type="date" class="form-control" formControlName="Date_of_Joining"  placeholder="Date of Joining">
+         <div class="alert alert-danger" *ngIf="this.employeeFormGroup.get('Date_of_Joining').touched && this.employeeFormGroup.get('Date_of_Joining').invalid">Please enter the Employee Date of joining</div>
+       </div>
+       
+       <div class="row" >
+           <button type="submit" id="submit" >Update</button>
+       </div>
+     </div>
+   </form>
+     
+     
+     
+ 

@@ -1,0 +1,29 @@
+
+<b>Employee List</b>
+<table class="table">
+    <thead>
+      <tr>        
+        <th scope="col">Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Role</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    
+    <tbody >
+      <tr *ngFor="let emp of this.emp" >        
+        <td> {{emp.Name}} </td>
+        <td> {{emp.Department}} </td>
+        <td> {{emp.Role}} </td>
+        <!--<td><a [routerLink]="['/employee/edit/',emp.EmpId]" href="#">Edit</a> | <a href="#">Delete</a> </td>-->
+        <td><a routerLink="../employee/edit/{{emp.EmpId}}">Edit</a> | <a href="#" (click)="deleteConfirmation(emp.Name, emp.EmpId)" >Delete</a></td>
+      </tr>
+    </tbody>
+
+      </table>
+      <div *ngIf="this.emp==''"> 
+        No Record Found
+      </div>
+      
+      
+      
